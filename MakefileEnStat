@@ -1,0 +1,24 @@
+SOURCES = mainEncoder.c
+FORLIBRARY = Validate.o Coder.o
+LIBRARY = libString.a
+TARGET = encoder
+
+all: $(TARGET)
+
+$(TARGET): mainEncoder.o libString.a
+	gcc mainEncoder.o -o $(TARGET) -std=c99 -L. -lString
+
+mainEncoder.o: mainEncoder.c
+	gcc $< -c -o $@ -std=c99
+
+$(LIBRARY): $(FORLIBRARY)
+	ar cr $(LIBRARY) Validate.o Coder.o
+
+Validate.o: Validate.c
+	gcc $< -c -o $@ -std=c99
+
+Coder.o: Coder.c
+	gcc $< -c -o $@ -std=c99
+
+clean:
+	rm -f *.o *.a $(TARGET)

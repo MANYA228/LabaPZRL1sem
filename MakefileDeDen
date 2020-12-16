@@ -1,0 +1,24 @@
+SOURCES = mainDecoded.c
+FORLIBRARY = Validate.o Coder.o
+LIBRARY = libCod.so
+TARGET = decoded
+
+all: $(TARGET)
+
+$(TARGET): mainDecoded.o libCod.so
+	gcc mainDecoded.o -o $(TARGET) -std=c99 -L. -lCod -Wl,-rpath,.
+
+mainDecoded.o: mainDecoded.c
+	gcc $< -c -o $@ -std=c99
+
+$(LIBRARY): $(FORLIBRARY)
+	gcc Validate.o Coder.o -shared -o $(LIBRARY)
+
+Validate.o: Validate.c
+	gcc -c -fPIC $< -std=c99
+
+Coder.o: Coder.c
+	gcc -c -fPIC $< -std=c99
+
+clean:
+	rm -f *.o *.so $(TARGET)
