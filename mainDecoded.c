@@ -4,6 +4,7 @@
 #include "Coder.h"
 
 int main(int argc, char* argv[]){
+    if (argc == 4) {
     char* cipher = argv[1];
     char* str = argv[2];
     char* pass = argv[3];
@@ -29,4 +30,9 @@ int main(int argc, char* argv[]){
     else{
         printf("Неправильный ввод шифра.\n");
     }
+    }
+    else {
+        printf("Неправильное количество аргументов.\n");
+    }
+    return 0;
 }
