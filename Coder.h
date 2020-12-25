@@ -10,3 +10,5 @@ void    muttableLastSpace(char str[]);
 char*   immutableLastSpace(const char* str);
 int     ifLetter(char* str);
 int     ifNumber(char* str);
+char*   immutableFilter(const char* str);
+void    mutableFilter(char str[]);

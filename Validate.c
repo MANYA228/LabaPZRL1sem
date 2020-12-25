@@ -25,7 +25,7 @@ char*   immutableFilterSpace(const char* str){
     return end;
 }
 
-void    muttableFilter(char str[]){
+/* void    muttableFilter(char str[]){
     int j = 0;
     for (int i = 0; str[i] != '\0'; ++i){
         if (str[i] == ' ' || str[i] >= 'a' && str[i] <= 'z' 
@@ -37,9 +37,9 @@ void    muttableFilter(char str[]){
    }
 
    str[j] = '\0';
-}
+} */
 
-char*   immutableFilter(const char* str){
+/* char*   immutableFilter(const char* str){
     int j = 0;
     char* end = malloc(strlen(str) * sizeof(char));
     for (int i = 0; i < strlen(str); ++i){
@@ -52,7 +52,7 @@ char*   immutableFilter(const char* str){
     end = realloc(end, (1 + j) * sizeof(char));
     end[j] = '\0';
     return end;
-}
+} */
 
 void    muttableUpper(char* str){
     while (*str){

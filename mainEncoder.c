@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Coder.h"
-#include "Validate.h"
 
 int main(int argc, char* argv[]){
     if (argc == 4) {

@@ -8,7 +8,7 @@ all: $(TARGET)
 $(TARGET): mainEncoder.o libCod.so
 	gcc mainEncoder.o -o $(TARGET) -std=c99 -L. -lCod -Wl,-rpath,.
 
-mainEn.o: mainEncoder.c
+mainEncoder.o: mainEncoder.c
 	gcc $< -c -o $@ -std=c99
 
 $(LIBRARY): $(FORLIBRARY)

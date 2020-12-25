@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Coder.h"
-#include "Validate.h"
 
 int main(int argc, char* argv[]){
     if (argc == 4) {
@@ -11,7 +10,16 @@ int main(int argc, char* argv[]){
     char* pass = argv[3];
     if (strcmp(cipher, "--caesar") == 0){
         if (ifNumber(pass)){
-            int pass = atoi(pass) * (-1);
+            int l = strlen(pass);
+            int tan = 1;
+            int key;
+            for (int i = 0; i < l; i++){
+                key += (pass[l - i - 1] - 48) * tan;
+                tan *= 10;
+                }
+            if (pass[0] == '-') {
+            key = (key - (('-' - 48) * (tan/10))) * (-1);
+            }
             muttableCaesar(str, pass);
             printf("%s\n", str);
         }
@@ -20,15 +28,15 @@ int main(int argc, char* argv[]){
         }
     }
     else if (strcmp(cipher, "--xor") == 0){
-        if (ifLetter(pass)){
+        if (ifLetter(pass)) {
             muttableXor(str, pass);
             printf("%s\n", str);
         }
-        else{
+        else {
             printf("Ключ должен состоять только из букв.\n");
         }
     }
-    else{
+    else {
         printf("Неправильный ввод шифра.\n");
     }
     }
