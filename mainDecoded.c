@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
             if (pass[0] == '-') {
             key = (key - (('-' - 48) * (tan/10))) * (-1);
             }
-            muttableCaesar(str, pass);
+            muttableCaesar(str, atoi (pass));
             printf("%s\n", str);
         }
         else{
